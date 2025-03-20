@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Freedam | Регистрация</title>
+</head>
+<body>
+    <section>
+        <div class="register-main">
+            <h2>Регистрация</h2>
+            <form action="register.php" method="POST" onsubmit="return validateForm()">
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="Ваше имя" required><br><br>
+                <label for="phone"></label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" placeholder="+7" required title="Введите номер телефона"><br><br>
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Пароль" required><br><br>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </section>
+    <section>
+        <div class="register-lenta">
+            <h1><span>F</span>reedam</h1>
+            <p>Добро пожаловать в <span>F</span>reedam messanger!</p>
+            <p>Присоединяйтесь к нам и начинайте общаться с друзьями и знакомыми.</p>
+            <div>
+                <a href="#">Подробнее о Freedam</a>
+                <div class="line"></div>
+                <a href="#">Скачать приложение</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            if (name.trim() === '' || phone.trim() === '' || password.trim() === '') {
+                alert('Все поля должны быть заполнены');
+                return false;
+            }
+
+            if (phone.length !== 11 || isNaN(phone)) {
+                alert('Номер телефона должен состоять из 11 цифр');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

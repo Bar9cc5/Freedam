@@ -1,0 +1,118 @@
+body {
+    background: url(images/img-body2.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register-lenta {
+    margin: 55px;
+    text-align: left;
+}
+
+form {
+    margin-left: auto;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+h1 span {
+    background-color: rgb(167, 74, 255);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}
+
+a {
+    color: rgb(167, 74, 255);
+    text-decoration: none;
+    display: inline-block; 
+    border-radius: 5px;
+    margin-right: 10px; 
+}
+
+.line {
+    width: 1px; 
+    height: 18px; 
+    background-color: #ffffff; 
+    display: inline-block;
+    margin-right: 10px; 
+}
+
+a:hover, a:focus{
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+section {
+    text-align: right;
+}
+
+.register-main {
+    margin: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.register-main h2 {
+    color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 768px) {
+    .register-main {
+        margin: 50px;
+        font-size: 25px;
+        margin-top: 120px;
+        position: absolute;
+        right: 50px;
+        width: 300px;
+    }
+}
+
+button {
+    font-size: 18px;
+    color: aliceblue;
+    background-color: rgb(167, 74, 255);
+    border: none;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: rgb(134, 53, 221);
+    cursor: pointer;
+}
+
+input {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.315);
+    border: none;
+    padding: 3%;
+    border-radius: 15px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+::placeholder {
+    color: white;
+}

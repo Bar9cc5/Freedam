@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about-main.css">
+    <title>Главная</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span>F</span>reedam</h1>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Поиск">
+            </form>
+        </div>
+        <div id="searchResults"></div>
+        <div class="line"></div>
+    </header>    
+    <section>
+        <nav class="navbar">
+            <a href="#profile" class="nav-item" id="profileLink">
+                <span class="label">Профиль</span>
+                <img src="ikon/img-1.png" alt="Profile" class="icon">
+            </a>
+            <a href="#feed" class="nav-item">
+                <span class="label">Главная</span>
+                <img src="ikon/img-2.png" alt="Home" class="icon">
+            </a>
+            <a href="#messenger" class="nav-item">
+                <span class="label">Мессенджер</span>
+                <img src="ikon/img-3.png" alt="Messenger" class="icon">
+            </a>
+            <a href="#friends" class="nav-item">
+                <span class="label">Друзья</span>
+                <img src="ikon/img-4.png" alt="Friends" class="icon">
+            </a>
+            <a href="#communities" class="nav-item">
+                <span class="label">Сообщества</span>
+                <img src="ikon/img-5.png" alt="Communities" class="icon">
+            </a>
+            <a href="#photos" class="nav-item">
+                <span class="label">Фотографии</span>
+                <img src="ikon/img-6.png" alt="Photos" class="icon">
+            </a>
+            <a href="#videos" class="nav-item">
+                <span class="label">Видео</span>
+                <img src="ikon/img-7.png" alt="Videos" class="icon">
+            </a>
+        </nav>
+
+        <!-- Секция профиля -->
+        <div id="profileSection" class="profile-section">
+            <div class="profile-header">
+                <h2>Профиль</h2>
+            </div>
+            <div class="profile-content">
+                <!-- Аватарка и имя -->
+                <div class="avatar-section">
+                    <img src="images/default-avatar.png" alt="Аватарка" id="profileAvatar" class="avatar">
+                    <div class="profile-name">
+                        <span id="profileNameDisplay">Иван Иванов</span>
+                        <button onclick="showDescription()">Подробнее</button>
+                        <button onclick="openEditModal()">Редактировать</button>
+                    </div>
+                </div>
+
+                <!-- Описание (скрыто по умолчанию) -->
+                <div id="profileDescription" class="profile-description hidden">
+                    <p id="profileBioDisplay">Привет! Я использую Freedam.</p>
+                </div>
+
+                <!-- Раздел с фото -->
+                <div class="photos-section">
+                    <h3>Фотографии</h3>
+                    <div class="photos-grid">
+                        <img src="images/photo1.jpg" alt="Фото 1">
+                        <img src="images/photo2.jpg" alt="Фото 2">
+                        <img src="images/photo3.jpg" alt="Фото 3">
+                    </div>
+                </div>
+
+                <!-- Раздел с друзьями -->
+                <div class="friends-section">
+                    <h3>Друзья</h3>
+                    <ul id="friendsList">
+                        <li>Друг 1</li>
+                        <li>Друг 2</li>
+                        <li>Друг 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно для редактирования профиля -->
+        <div id="editModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="closeEditModal()">&times;</span>
+                <h2>Редактирование профиля</h2>
+                <form id="editProfileForm">
+                    <label for="editName">Имя:</label>
+                    <input type="text" id="editName" value="Иван Иванов" required>
+                    <label for="editBio">Описание:</label>
+                    <textarea id="editBio" rows="4" required>Привет! Я использую Freedam.</textarea>
+                    <label for="editAvatar">Аватарка:</label>
+                    <input type="file" id="editAvatar" accept="image/*">
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Показать описание
+        function showDescription() {
+            document.getElementById('profileDescription').classList.toggle('hidden');
+        }
+
+        // Открыть модальное окно редактирования
+        function openEditModal() {
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        // Закрыть модальное окно редактирования
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        // Сохранение профиля
+        document.getElementById('editProfileForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Отменяем стандартное поведение формы
+            const name = document.getElementById('editName').value;
+            const bio = document.getElementById('editBio').value;
+            const avatarFile = document.getElementById('editAvatar').files[0];
+
+            // Обновляем отображаемые данные
+            document.getElementById('profileNameDisplay').textContent = name;
+            document.getElementById('profileBioDisplay').textContent = bio;
+
+            // Обновляем аватарку, если выбрана новая
+            if (avatarFile) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileAvatar').src = e.target.result;
+                };
+                reader.readAsDataURL(avatarFile);
+            }
+
+            closeEditModal(); // Закрываем модальное окно
+            alert('Изменения сохранены!');
+        });
+    </script>
+</body>
+</html>

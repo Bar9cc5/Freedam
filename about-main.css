@@ -1,0 +1,242 @@
+body {
+    background: rgb(31, 31, 31);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;  
+    align-items: center;  
+    justify-content: space-between;  
+}
+
+.line {
+    height: 1px; 
+    background-color: #3b3b3b; 
+    width: 100%; 
+    margin-top: 10px;  
+}   
+   
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+h1 span {
+    background-color: rgb(167, 74, 255);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 5px; 
+    border: 0 solid #1d1d1d; 
+    border-radius: 5px;
+    background-color: #3b3b3b;
+    color: white;
+}
+
+
+::placeholder {
+    color: white;
+}
+
+/* Стили для навигационного меню */
+.navbar {
+    position: absolute; /* использование абсолютного позиционирования */
+    top: 100px; /* отступ сверху, чтобы не перекрывать шапку (настройте по необходимости) */
+    left: 0; /* прижать к левому краю экрана */
+    width: 200px; /* ширина бокового меню */
+    border-right: 1px solid #3b3b3b;  /* граница справа для отделения */
+    height: calc(100% - 50px); /* высота, которая будет занимать всё пространство под шапкой */
+    overflow-y: auto; /* добавляет возможность прокрутки, если элементов много */
+    z-index: 1000; /* чтобы меню было поверх других элементов */
+}
+
+/* Стили для элементов в навигационном меню */
+.nav-item {
+    display: flex; /* используем flex для выравнивания элементов */
+    align-items: center; /* вертикальное выравнивание */
+    padding: 10px; /* отступы для удобства */
+    text-decoration: none; /* убираем подчеркивание ссылок */
+    color: #ffffff; /* цвет текста */
+}
+
+.nav-item:hover {
+    color: rgb(167, 74, 255);
+    background-color: #3b3b3b; 
+}
+
+
+.icon {
+    width: 24px; /* ширина иконки */
+    height: 24px; /* высота иконки */
+    margin-left: auto; /* выравнивание иконки справа */
+    margin-right: 10px; /* отступ справа от текста */
+    opacity: 0.8; /* прозрачность иконки */
+    transition: opacity 0.3s ease; /* плавный переход для ховера */
+}
+
+.nav-item:hover .icon {
+    opacity: 1; /* полная непрозрачность при наведении */
+}
+
+
+/* Стили для секции профиля */
+.profile-section {
+    margin-left: 220px; /* Отступ, чтобы не перекрывать боковое меню */
+    padding: 20px;
+    color: white;
+}
+
+.hidden {
+    display: none; /* Скрываем секцию по умолчанию */
+}
+
+.profile-header h2 {
+    color: rgb(167, 74, 255);
+}
+
+.avatar-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 150px; /* Увеличили аватарку */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    margin-top: 10px;
+}
+
+.profile-name span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.profile-name button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: rgb(167, 74, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-name button:hover {
+    background-color: rgb(134, 53, 221);
+}
+
+.profile-description {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3b3b3b;
+    border-radius: 5px;
+}
+
+.photos-section {
+    margin-top: 20px;
+}
+
+.photos-section h3 {
+    color: rgb(167, 74, 255);
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.photos-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.friends-section {
+    margin-top: 20px;
+}
+
+.friends-section h3 {
+    color: rgb(167, 74, 255);
+}
+
+.friends-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.friends-section li {
+    padding: 10px;
+    background-color: #3b3b3b;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1d1d1d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    color: white;
+}
+
+.modal-content .close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #3b3b3b;
+    border-radius: 5px;
+    background-color: #3b3b3b;
+    color: white;
+}
+
+.modal-content form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(167, 74, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-content form button:hover {
+    background-color: rgb(134, 53, 221);
+}
